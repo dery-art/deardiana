@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy 23rd Birthday, Teh Diana!</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.0/dist/confetti.browser.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: white;
+        font-family: "Poppins", sans-serif;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+      }
+
+      h1 {
+        font-size: 5vw;
+        margin-bottom: 20px;
+        color: #ff4081;
+      }
+
+      /* Tampilan awal dengan kue */
+      .initial-screen {
+        display: block;
+        position: relative;
+        z-index: 1;
+      }
+
+      .cake-container {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        background-color: #ff80ab;
+        border-radius: 10px;
+        margin-top: 40px;
+      }
+
+      .cake {
+        width: 100%;
+        height: 70%;
+        background-color: #ffcccb;
+        border-radius: 10px 10px 0 0;
+        position: absolute;
+        bottom: 0;
+      }
+
+      .candle {
+        width: 10px;
+        height: 40px;
+        background-color: #fbc02d;
+        position: absolute;
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: moveCandle 1s infinite alternate;
+      }
+
+      .candle:before {
+        content: "";
+        width: 4px;
+        height: 10px;
+        background-color: #ff9800;
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      /* Animasi lilin bergerak */
+      @keyframes moveCandle {
+        0% {
+          top: -40px;
+        }
+        100% {
+          top: -50px;
+        }
+      }
+
+      .button-container {
+        margin-top: 30px;
+        position: relative;
+        z-index: 2;
+      }
+
+      button {
+        padding: 15px 30px;
+        font-size: 16px;
+        background-color: #ff5722;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #d84315;
+      }
+
+      /* Surat dengan flipbook-style */
+      .message {
+        font-size: 18px;
+        display: none;
+        padding: 20px;
+        margin-top: 20px;
+        max-width: 80%;
+        text-align: left;
+        background-color: #ffebee;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-left: 10px solid #ff80ab;
+        color: #333;
+        transition: all 0.5s ease;
+      }
+
+      .letter {
+        font-size: 16px;
+        display: none;
+        padding: 20px;
+        max-width: 80%;
+        word-wrap: break-word;
+        background-color: #fffbf0;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-left: 10px solid #ff4081;
+        text-align: left;
+        color: #333;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+
+      .photos {
+        display: none;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 20px;
+        animation: fadeIn 1s ease-out forwards;
+      }
+
+      .photos img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        animation: zoomIn 1s ease-out forwards;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes zoomIn {
+        0% {
+          transform: scale(0.9);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* Responsif untuk tampilan mobile */
+      @media (max-width: 600px) {
+        .message,
+        .letter {
+          max-width: 90%;
+        }
+
+        h1 {
+          font-size: 8vw;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Happy 23rd Birthday, Teh Diana!</h1>
+
+    <!-- Tampilan awal dengan kue -->
+    <div class="initial-screen">
+      <div class="cake-container">
+        <div class="cake"></div>
+        <div class="candle"></div>
+      </div>
+      <div class="button-container">
+        <button onclick="showMessage()">Klik untuk Melihat Pesan</button>
+      </div>
+    </div>
+
+    <!-- Surat pertama yang muncul setelah klik -->
+    <div class="message">
+      <p>
+        Happy 23rd Birthday, Teh Diana!<br /><br />
+        Sayang, selamat! Kamu sekarang resmi jadi lebih tua, lebih bijak, dan…
+        lebih dekat ke fase di mana duduk terlalu lama bisa bikin punggung
+        pegel. Tapi tenang, kamu tetap pacarku yang paling manis, lebih manis
+        dari teh yang lupa diaduk.<br /><br />
+        Di umur 23 ini, semoga hidupmu seindah senyum kamu, semulus pantat bayi,
+        dan seseru scroll TikTok sebelum tidur. Jangan takut tambah umur, karena
+        aku akan tetap ada di sini, siap nemenin kamu, dari krisis seperempat
+        abad sampai krisis keuangan pas akhir bulan.<br /><br />
+        Selamat ulang tahun, sayang! Jangan lupa, kamu makin dewasa, tapi tetap
+        boleh minta jajan. Aku traktir, tapi jangan mahal-mahal ya, masih belum
+        kaya soalnya.<br /><br />
+        Dengan penuh cinta,<br />
+        Anak Buah Putin
+      </p>
+      <div class="button-container">
+        <button onclick="showPhotos()">Lihat Kenangan Kita</button>
+      </div>
+    </div>
+
+    <!-- Foto-foto kenangan yang muncul setelah tombol "Lihat Kenangan Kita" diklik -->
+    <div class="photos">
+      <img
+        src="Asset/WhatsApp Image 2025-02-08 at 01.30.01 (1).jpeg"
+        alt="Kenangan 1"
+      />
+      <img
+        src="Asset/WhatsApp Image 2025-02-08 at 01.30.01 (2).jpeg"
+        alt="Kenangan 2"
+      />
+      <img
+        src="Asset/WhatsApp Image 2025-02-08 at 01.30.01.jpeg"
+        alt="Kenangan 3"
+      />
+      <img
+        src="Asset/WhatsApp Image 2025-02-08 at 01.30.02 (1).jpeg"
+        alt="Kenangan 4"
+      />
+      <img
+        src="Asset/WhatsApp Image 2025-02-08 at 01.30.02 (1).jpeg"
+        alt="Kenangan 5"
+      />
+      <img
+        src="Asset/WhatsApp Image 2025-02-08 at 01.30.02 (2).jpeg"
+        alt="Kenangan 6"
+      />
+      <img
+        src="Asset/WhatsApp Image 2025-02-08 at 01.30.02.jpeg"
+        alt="Kenangan 7"
+      />
+    </div>
+
+    <script>
+      // Fungsi untuk menampilkan surat pertama setelah tombol pertama diklik
+      function showMessage() {
+        const initialScreen = document.querySelector(".initial-screen");
+        const messageDiv = document.querySelector(".message");
+        initialScreen.style.display = "none"; // Menyembunyikan tampilan awal
+        messageDiv.style.display = "block"; // Menampilkan surat pertama
+        startConfetti(); // Memulai animasi confetti
+      }
+
+      // Fungsi untuk menampilkan foto kenangan setelah tombol kedua diklik
+      function showPhotos() {
+        const photosDiv = document.querySelector(".photos");
+        photosDiv.style.display = "flex"; // Menampilkan foto-foto kenangan
+      }
+
+      // Fungsi untuk memulai animasi confetti
+      function startConfetti() {
+        confetti(); // Memulai animasi confetti
+      }
+    </script>
+  </body>
+</html>
