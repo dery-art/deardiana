@@ -19,14 +19,14 @@
       body {
         background-color: white;
         font-family: "Poppins", sans-serif;
-        min-height: 100vh; /* Mengganti height menjadi min-height */
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         color: black;
         text-align: center;
-        overflow-y: auto; /* Menambahkan scroll jika konten melebihi tinggi layar */
+        overflow-y: auto;
         position: relative;
       }
 
@@ -149,10 +149,19 @@
       .photos {
         display: none;
         flex-wrap: wrap;
-        gap: 20px;
+        gap: 30px; /* Menambahkan jarak antar gambar */
         justify-content: center;
         margin-top: 20px;
         animation: fadeIn 1s ease-out forwards;
+      }
+
+      .photo-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px; /* Menambahkan jarak antara gambar dan teks */
+        padding: 15px; /* Menambahkan padding untuk merapikan */
+        text-align: center; /* Memastikan teks berada di tengah */
       }
 
       .photos img {
@@ -162,6 +171,17 @@
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         animation: zoomIn 1s ease-out forwards;
+      }
+
+      .photo-item h3 {
+        font-size: 18px;
+        color: #ff4081;
+        margin-bottom: 5px;
+      }
+
+      .photo-item p {
+        font-size: 14px;
+        color: #333;
       }
 
       @keyframes fadeIn {
@@ -214,15 +234,17 @@
       <p>
         Happy 23rd Birthday, Teh Diana!<br /><br />
         Sayang, selamat! Kamu sekarang resmi jadi lebih tua, lebih galak, dan…
-        lebih dekat ke fase di mana kamu bakal lebih jompo dari sebelumnya. Tapi tenang, kamu tetap pacarku yang paling manis, lebih manis
-        dari minuman es.teh yang rasa red velvet atau ketan susu bangzul yang kita makan waktu itu. Tapi tenang, kamu ga bikin mual kaya mereka.<br /><br />
+        lebih dekat ke fase di mana kamu bakal lebih jompo dari sebelumnya. Tapi
+        tenang, kamu tetap pacarku yang paling manis, lebih manis dari minuman
+        es.teh yang rasa red velvet atau ketan susu bangzul yang kita makan
+        waktu itu. Tapi tenang, kamu ga bikin mual kaya mereka.<br /><br />
         Di umur 23 ini, semoga hidupmu seindah senyum kamu, semulus pantat bayi,
-        dan seseru scroll TikTok sebelum tidur. Jangan takut tambah umur, karena 
-        ada aku yang bakal terus sama kamu, siap nemenin kamu kemanapun kamu, dari krisis seperempat
-        abad sampai krisis keuangan pas akhir bulan.<br /><br />
+        dan seseru scroll TikTok sebelum tidur. Jangan takut tambah umur, karena
+        ada aku yang bakal terus sama kamu, siap nemenin kamu kemanapun kamu,
+        dari krisis seperempat abad sampai krisis keuangan pas akhir bulan.<br /><br />
         Selamat ulang tahun, sayang! Jangan lupa, kamu makin dewasa, tapi tetap
-        boleh minta jajan apapun yang kamu. Aku traktir, tapi jangan mahal-mahal ya, masih belum
-        kaya soalnya.<br /><br />
+        boleh minta jajan apapun yang kamu. Aku traktir, tapi jangan mahal-mahal
+        ya, masih belum kaya soalnya.<br /><br />
         Dengan penuh cinta,<br />
         Anak Buah Ultraman
       </p>
@@ -233,34 +255,68 @@
 
     <!-- Foto-foto kenangan yang muncul setelah tombol "Lihat Kenangan Kita" diklik -->
     <div class="photos">
-      <img
-        src="Asset/WhatsApp Image 2025-02-08 at 01.30.01 (1).jpeg"
-        alt="Kenangan 1"
-      />
-      <img
-        src="Asset/WhatsApp Image 2025-02-08 at 01.30.01 (2).jpeg"
-        alt="Kenangan 2"
-      />
-      <img
-        src="Asset/WhatsApp Image 2025-02-08 at 01.30.01.jpeg"
-        alt="Kenangan 3"
-      />
-      <img
-        src="Asset/WhatsApp Image 2025-02-08 at 01.30.02 (1).jpeg"
-        alt="Kenangan 4"
-      />
-      <img
-        src="Asset/WhatsApp Image 2025-02-08 at 01.30.02 (1).jpeg"
-        alt="Kenangan 5"
-      />
-      <img
-        src="Asset/WhatsApp Image 2025-02-08 at 01.30.02 (2).jpeg"
-        alt="Kenangan 6"
-      />
-      <img
-        src="Asset/WhatsApp Image 2025-02-08 at 01.30.02.jpeg"
-        alt="Kenangan 7"
-      />
+      <div class="photo-item">
+        <img src="Asset/first date.jpeg" alt="Kenangan 1" />
+        <h3>Our First Date</h3>
+        <p>Keknya ini date pertama kita yang paling bener</p>
+      </div>
+      <div class="photo-item">
+        <img src="Asset/date abis berantem.jpeg" alt="Kenangan 2" />
+        <h3>Date sehabis lost contact</h3>
+        <p>ini pertemuan kita setelah saling block haha</p>
+      </div>
+      <div class="photo-item">
+        <img src="Asset/firstday pacaran.jpeg" alt="Kenangan 3" />
+        <h3>the first time we dated</h3>
+        <p>ini hari pertama pacaran setelah sebuah keisengan ngajak pacaran</p>
+      </div>
+      <div class="photo-item">
+        <img src="Asset/pertama kali dimarahin ana.jpeg" alt="Kenangan 4" />
+        <h3>Dimarahin kamu 4</h3>
+        <p>ini aku bingung liat kamu ngambek ampe mukul ulu hati aku wkwk</p>
+      </div>
+      <div class="photo-item">
+        <img src="Asset/date punclut.jpeg" alt="Kenangan 5" />
+        <h3>D'dieu Land</h3>
+        <p>date yang bikin lutut aku gemeter liat ketinggiannya</p>
+      </div>
+      <div class="photo-item">
+        <img src="Asset/ulang taun ku.jpeg" alt="Kenangan 6" />
+        <h3>My Best Birthday</h3>
+        <p>
+          disini aku bener bener seneng, karna sama kamu aku bisa ngerasain hari
+          ulang tahun paling bahagia sedunia
+        </p>
+      </div>
+      <div class="photo-item">
+        <img src="Asset/taun baru.jpeg" alt="Kenangan 7" />
+        <h3>New Year</h3>
+        <p>
+          ini juga jadi perayaan taun baru paling meriah buat aku, selain
+          tempatnya yang mewah, ada kamu juga bikin hari itu jadi spesial bgt
+        </p>
+      </div>
+      <div class="photo-item">
+        <img src="Asset/pecel date.jpeg" alt="Kenangan 8" />
+        <h3>Pecel Date</h3>
+        <p>ini pertama kali kita makan sederhana di pinggir jalan</p>
+      </div>
+      <div class="photo-item">
+        <img src="Asset/pecel date 2.jpeg" alt="Kenangan 9" />
+        <h3>Pecel date 2</h3>
+        <p>
+          makan pecel malem malem, eh malah kejebak hujan gede, mana ga bawa jas
+          ujan
+        </p>
+      </div>
+      <div class="photo-item">
+        <img src="Asset/best photobooth.jpeg" alt="Kenangan 10" />
+        <h3>photobooth terbagus</h3>
+        <p>
+          disini aku ngerasa cakep bgt, ditambah kualitas fotonya yang mantep
+          poll
+        </p>
+      </div>
     </div>
 
     <script>
